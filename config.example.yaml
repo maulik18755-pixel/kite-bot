@@ -1,0 +1,29 @@
+# Copy to config.yaml and edit. Secrets (API key/secret) come from environment
+# variables KITE_API_KEY and KITE_API_SECRET, never from this file.
+
+universe:
+  # NSE cash-segment symbols only. Anything not listed here is refused by the risk manager.
+  - NIFTYBEES
+  - BANKBEES
+  - JUNIORBEES
+  - GOLDBEES
+  - ITBEES
+
+strategy: trend            # trend | meanrev
+cash_yield_pct: 0           # set to about 6 if idle cash is parked in a liquid ETF (e.g. LIQUIDBEES)
+start_capital: 20000       # INR, first deposit for backtests and the paper account
+monthly_contribution: 20000  # INR added on the first trading day of each month
+
+risk:
+  risk_per_trade_pct: 1.0      # max loss to stop per trade, % of equity
+  max_position_pct: 20.0       # largest single position, % of equity
+  max_gross_exposure_pct: 100  # no leverage
+  daily_loss_limit_pct: 2.0    # stop new orders for the day after this loss
+  max_drawdown_pct: 15.0       # kill switch, needs manual reset
+  max_orders_per_day: 20
+
+costs:
+  slippage_pct: 0.05           # per side, on top of Zerodha charges
+
+live:
+  enabled: false               # live order placement is not implemented; see README

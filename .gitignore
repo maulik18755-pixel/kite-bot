@@ -147,3 +147,10 @@ vite.config.ts.timestamp-*
 
 # Turbo Repo
 .turbo
+
+# kite-bot
+.kite_token.json
+config.yaml
+data/
+state/
+reports/
